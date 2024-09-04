@@ -31,8 +31,15 @@ function StopLight({ initialColor }: { initialColor: string }) {
   );
 }
 
+const lights = ["#ea3324", "#fffe57", "#387e23"];
+
+function randomLight() {
+  return lights[Math.floor(Math.random() * lights.length)];
+}
+
 function App() {
-  const [light, setLight] = useState(["#ea3324", "#fffe57"]);
+  const [light, setLight] = useState(randomLight());
+  // const [light, setLight] = useState("#ea3324");
 
   useEffect(() => {
     const changingLight =
@@ -60,10 +67,10 @@ function App() {
         className=" m-auto flex  gap-8
       "
       >
-        <StopLight initialColor={light} />
-        <StopLight initialColor={light} />
-        <StopLight initialColor={light} />
-        <StopLight initialColor={light} />
+        <StopLight initialColor={randomLight()} />
+        <StopLight initialColor={randomLight()} />
+        <StopLight initialColor={randomLight()} />
+        <StopLight initialColor={randomLight()} />
         <StopLight initialColor={light} />
         <StopLight initialColor={light} />
       </div>
